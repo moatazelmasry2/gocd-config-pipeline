@@ -7,8 +7,8 @@ environments:
     secure_variables:
       ENV_PASSWORD: "s&Du#@$xsSa"
     pipelines:
-      - example-deploy-testing
-      - build-testing
+      - pipe2
+      - mypipe1
 pipelines:
   pipe2:
     group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
