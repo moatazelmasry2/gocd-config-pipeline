@@ -47,8 +47,6 @@ pipelines:
                 report: test-reports/index.html
               tasks: # ordered list of tasks to execute in job csharp
               - exec: # indicates type of task
-                   command: make
-                   arguments:
+                  command: make
+                  arguments:
                     - "VERBOSE=true"
-               # shorthand for script-executor plugin
-               - script: ./build.sh ci
