@@ -10,6 +10,23 @@ environments:
       - example-deploy-testing
       - build-testing
 pipelines:
+  pipe2:
+    group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
+    materials:
+      mygit: # this is the name of material, the name can contain only of alphanumeric & underscore characters
+        # keyword git says about type of material and url at once
+        git: https://github.com/moatazelmasry2/gocd-config-pipeline.git
+        branch: master
+    stages:
+      - test:
+          jobs:
+            csharp:
+              tasks: # ordered list of tasks to execute in job csharp
+                - exec: # indicates type of task
+                    command: make
+                    arguments:
+                      - "VERBOSE=true"
+
   mypipe1: # definition of mypipe1 pipeline
     group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
     display_order: 10
