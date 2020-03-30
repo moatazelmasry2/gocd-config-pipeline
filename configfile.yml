@@ -20,8 +20,8 @@ pipelines:
     materials:
       mygit: # this is the name of material, the name can contain only of alphanumeric & underscore characters
         # keyword git says about type of material and url at once
-        git: http://my.example.org/mygit.git
-        branch: ci
+        git: https://github.com/moatazelmasry2/gocd-config-pipeline.git
+        branch: master
       myupstream: # this name does not matter, but there should be no 2 materials with the same name
         # type is optional here, material type is implied based on presence of pipeline and stage fields
         # type: dependency
@@ -46,13 +46,7 @@ pipelines:
               tabs:
                 report: test-reports/index.html
               tasks: # ordered list of tasks to execute in job csharp
-               - fetch:
-                   pipeline: pipe2
-                   stage: build
-                   job: test
-                   source: test-bin/
-                   destination: bin/
-               - exec: # indicates type of task
+                 - exec: # indicates type of task
                    command: make
                    arguments:
                     - "VERBOSE=true"
